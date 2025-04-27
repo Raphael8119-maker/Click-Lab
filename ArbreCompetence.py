@@ -14,6 +14,8 @@ class GameView(arcade.View):
         
         self.window.set_mouse_visible(True)
         
+        self.player_list = arcade.SpriteList()
+        
         self.background_color = arcade.csscolor.BLACK
 
         
