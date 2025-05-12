@@ -6,7 +6,6 @@ from PIL import Image, ImageTk
 
 def Rng():
     #Non variable
-    recherche = 10000
     listeCompetenceLootBoxRare = ["competence1","competence2","competence3"]
     listeLootBox = ["LootBox Rare"]
 
