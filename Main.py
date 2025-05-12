@@ -73,7 +73,6 @@ def lancer_main():
 
     # Lier le clic de souris à la fonction de comptage
     canvas.bind("<Button-1>", compte_click)
-
     
     fn.mainloop()
 
