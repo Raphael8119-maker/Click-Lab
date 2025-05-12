@@ -3,9 +3,14 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import time
 import threading
-import Rng
+import test4
 
 
+#non variable obligatoire
+listeCompetenceLootBoxRare = ["competence1","competence2","competence3"]
+listeLootBox = ["LootBox Rare"]
+
+#Création de la fn
 fn = Tk()
 fn.title("Calculatrice")
 fn.geometry("1280x720")
@@ -16,7 +21,7 @@ fn.configure(bg = "light blue")
 my_font = tkFont.Font(size= 20)
 
 
-image = Image.open("fiole.png")
+image = Image.open("C:\\Users\\Utiliasteur\\OneDrive\\Documents\\visual studio\\fiole.png")
 photo = ImageTk.PhotoImage(image)
  
 
@@ -54,8 +59,8 @@ texte = StringVar()
 texte.set("Nombre de recherche : " + str(recherche))
 labelResultat = Label(fn, text = "Nombre de clicks :", textvariable = texte, fg ='black', bg ='white').place(x=100, y=0)
  
-Button(fn,text="Lootbox",font = my_font,command=Rng.fnRng()).place(x=100,y=400)
-Button(fn,text="Lootbox",font = my_font,command=fn.destroy).place(x=1000,y=400)
+Button(fn, text="LootBox", font=my_font, command=lambda: test4.lancer_lootbox_interface(recherche)).place(x=100, y=400)
+Button(fn,text="Arbre Des Compétences",font = my_font,command=fn.destroy).place(x=1000,y=400)
 
 
 
