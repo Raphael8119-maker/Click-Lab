@@ -68,7 +68,7 @@ def fnRng():
     fn.configure(bg= "light blue")
     my_font = tkFont.Font(size= 14)   
 
-    image = Image.open('C:\\Users\\Utiliasteur\\OneDrive\\Documents\\visual studio\\ImgCoffreRare.png')
+    image = Image.open('ImgCoffreRare.png')
     photo = ImageTk.PhotoImage(image)
 
     canvas = Canvas(fn, width=140, height=150)
