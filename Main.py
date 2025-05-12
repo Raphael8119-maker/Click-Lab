@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Rng
 
-def lancer_main():
+def lancer_main(recherche = 0):
     """
     
     Lance l'interface graphique principale du jeu.
@@ -21,7 +21,7 @@ def lancer_main():
     my_font = tkFont.Font(size=20)
 
     # Chargement de l'image de la fiole
-    image = Image.open("C:\\Users\\Utiliasteur\\OneDrive\\Documents\\visual studio\\fiole.png")
+    image = Image.open("fiole.png")
     photo = ImageTk.PhotoImage(image)
 
     # Création du canvas et ajout de l'image
@@ -30,7 +30,6 @@ def lancer_main():
     fiole = canvas.create_image(0, 0, anchor=NW, image=photo, tags="fiole")
 
     # Initialisation du compteur de clics
-    recherche = 0
     texte = StringVar()
     texte.set("Nombre de recherche : " + str(recherche))
 
@@ -60,7 +59,7 @@ def lancer_main():
         
         """
         fn.destroy()
-        Rng.lancer_lootbox_interface(recherche, lootboxes, competencescompetencesLootBoxRare)
+        Rng.lancer_lootbox_interface(recherche, lootboxes, competencesLootBoxRare)
 
     # Affichage du compteur de clics
     Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='white').place(x=100, y=0)
@@ -69,7 +68,7 @@ def lancer_main():
     Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=100, y=400)
 
     # Bouton pour ouvrir l'arbre des compétences
-    Button(fn, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=1000, y=400)
+    Button(fn, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
 
     # Lier le clic de souris à la fonction de comptage
     canvas.bind("<Button-1>", compte_click)
