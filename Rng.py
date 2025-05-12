@@ -5,9 +5,6 @@ import tkinter.font as tkFont
 from PIL import Image, ImageTk 
 import Main
 
-#Non variable
-listeCompetenceLootBoxRare = ["competence1","competence2","competence3"]
-listeLootBox = ["LootBox Rare"]
 
 def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, listeLootBox):
     fn = Tk()
@@ -35,10 +32,15 @@ def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, list
     texte_loot.set("En attente du choix de la LootBox.")
     label_loot = Label(fn, textvariable=texte_loot, fg='Black', bg='light blue', font=my_font, width=120, height=3)
     label_loot.place(x=0, y=650)
-
+    
+    textePrixLootboxRare = StringVar()
+    textePrixLootboxRare.set("Le prix est de 50 recherches")
+    labelPrixLootboxRare = Label(fn, textvariable=textePrixLootboxRare, fg='Black', bg='white', font=my_font, width=20, height=3)
+    labelPrixLootboxRare.place(x=0, y=150)
+    
     def retour():
         fn.destroy()
-        Main.lancer_main()
+        Main.lancer_main(recherche)
     
     Button(fn, text="Retour", font=my_font, command=retour).place(x=0, y=560)
     
@@ -47,12 +49,12 @@ def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, list
     def nouveau_lancer():
         nonlocal recherche
         nonlocal listeCompetenceLootBoxRare
-        if recherche >= 100:
+        if recherche >= 50:
             if len(listeCompetenceLootBoxRare) != 0:
                 competence_choisie = random.choice(listeCompetenceLootBoxRare)
                 texte_loot.set(competence_choisie)
                 listeCompetenceLootBoxRare.remove(competence_choisie)
-                recherche -= 100
+                recherche -= 50
             else:
                 texte_loot.set("Vous avez acheté toutes les compétences de cette LootBox")
         else:
