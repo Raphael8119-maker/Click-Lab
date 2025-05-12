@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import time
 import threading
-import Rng
+
 
 fn = Tk()
 fn.title("Calculatrice")
@@ -53,7 +53,7 @@ texte = StringVar()
 texte.set("Nombre de recherche : " + str(recherche))
 labelResultat = Label(fn, text = "Nombre de clicks :", textvariable = texte, fg ='black', bg ='white').place(x=100, y=0)
  
-Button(fn,text="Lootbox",font = my_font,command=Rng.Rng()).place(x=100,y=400)
+Button(fn,text="Lootbox",font = my_font,command=Rng.fnRng()).place(x=100,y=400)
 Button(fn,text="Lootbox",font = my_font,command=fn.destroy).place(x=1000,y=400)
 
 
