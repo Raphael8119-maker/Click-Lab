@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import time
 import threading
+import Rng
 
 
 fn = Tk()
