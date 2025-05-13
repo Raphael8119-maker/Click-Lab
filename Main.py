@@ -25,7 +25,7 @@ def lancer_main(recherche = 0):
     photo = ImageTk.PhotoImage(image)
 
     # Création du canvas et ajout de l'image
-    canvas = Canvas(fn, width=214, height=259)
+    canvas = Canvas(fn, width=photo.width(), height=photo.height())
     canvas.pack()
     canvas.image = photo
     canvas.create_image(0, 0, anchor=NW, image=photo, tags="fiole")
