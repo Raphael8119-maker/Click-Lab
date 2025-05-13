@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Rng
 
-def lancer_main(recherche = 0):
+def lancer_main(recherche = 50):
     """
     
     Lance l'interface graphique principale du jeu.
@@ -62,7 +62,7 @@ def lancer_main(recherche = 0):
         Rng.lancer_lootbox_interface(recherche, competencesLootBoxRare, lootboxes)
 
     # Affichage du compteur de clics
-    Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='white').place(x=100, y=0)
+    Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
 
     # Bouton pour ouvrir une lootbox
     Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=100, y=400)
