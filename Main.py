@@ -12,7 +12,7 @@ def lancer_main(recherche = 50):
 
     # Création de la fenêtre principale
     fn = Tk()
-    fn.title("Calculatrice")
+    fn.title("Main - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
