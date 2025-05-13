@@ -27,7 +27,8 @@ def lancer_main(recherche = 0):
     # Création du canvas et ajout de l'image
     canvas = Canvas(fn, width=214, height=259)
     canvas.pack()
-    fiole = canvas.create_image(0, 0, anchor=NW, image=photo, tags="fiole")
+    canvas.image = photo
+    canvas.create_image(0, 0, anchor=NW, image=photo, tags="fiole")
 
     # Initialisation du compteur de clics
     texte = StringVar()
