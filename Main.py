@@ -78,3 +78,4 @@ def lancer_main(recherche = 0):
 # Lancement initial
 if __name__ == "__main__":
     lancer_main()
+    
