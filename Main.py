@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Rng
 
-def lancer_main(recherche = 50):
+def lancer_main(recherche = 0):
     """
     
     Lance l'interface graphique principale du jeu.
@@ -75,7 +75,4 @@ def lancer_main(recherche = 50):
     
     fn.mainloop()
 
-# Lancement initial
-if __name__ == "__main__":
-    lancer_main()
     
