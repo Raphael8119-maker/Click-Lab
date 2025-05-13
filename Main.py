@@ -11,7 +11,7 @@ def lancer_main(recherche = 0):
     """
 
     # Création de la fenêtre principale
-    fn = Tk()
+    fn = Toplevel()
     fn.title("Main - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
@@ -26,7 +26,8 @@ def lancer_main(recherche = 0):
 
     # Création du canvas et ajout de l'image
     canvas = Canvas(fn, width=photo.width(), height=photo.height())
-    canvas.pack()
+    canvas.place(x=550,y=0)
+    
     canvas.image = photo
     canvas.create_image(0, 0, anchor=NW, image=photo, tags="fiole")
 
@@ -41,7 +42,7 @@ def lancer_main(recherche = 0):
         Si le clic est dans les limites de l'image, incrémente le compteur.
         
         """
-        nonlocal recherche
+        global recherche
         x, y = event.x, event.y
         fiole_coords = canvas.coords("fiole")
         if x >= fiole_coords[0] and x <= fiole_coords[0] + image.size[0]:
