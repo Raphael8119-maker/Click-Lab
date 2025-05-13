@@ -19,7 +19,7 @@ def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, list
     photo = ImageTk.PhotoImage(image)
 
     canvas = Canvas(fn, width=photo.width(), height=photo.height())
-    canvas.place(x=0, y=0)
+    canvas.place(x=5, y=0)
 
     canvas.image = photo
     canvas.create_image(0, 0, anchor=NW, image=photo, tags="LootBox1")
