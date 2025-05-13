@@ -6,7 +6,7 @@ root = Tk()
 canvas = Canvas(root, width=300, height=300)
 canvas.pack()
 
-image = Image.open("ImgCoffreRare.png")  # <-- Vérifie le nom exact !
+image = Image.open("ImgCoffreRare.png")
 photo = ImageTk.PhotoImage(image)
 
 canvas.image = photo  # très important
