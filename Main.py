@@ -59,7 +59,7 @@ def lancer_main(recherche = 0):
         
         """
         fn.destroy()
-        Rng.lancer_lootbox_interface(recherche, lootboxes, competencesLootBoxRare)
+        Rng.lancer_lootbox_interface(recherche, competencesLootBoxRare, lootboxes)
 
     # Affichage du compteur de clics
     Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='white').place(x=100, y=0)
