@@ -13,6 +13,7 @@ def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, list
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
     my_font = tkFont.Font(size=14)
+    my_font2 = tkFont.Font(size=10)
 
     image = Image.open("ImgCoffreRare.png")
     photo = ImageTk.PhotoImage(image)
@@ -35,8 +36,8 @@ def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, list
     
     textePrixLootboxRare = StringVar()
     textePrixLootboxRare.set("Le prix est de 50 recherches")
-    labelPrixLootboxRare = Label(fn, textvariable=textePrixLootboxRare, fg='Black', bg='white', font=my_font, width=20, height=3)
-    labelPrixLootboxRare.place(x=0, y=150)
+    labelPrixLootboxRare = Label(fn, textvariable=textePrixLootboxRare, fg='Black', bg='light blue', font=my_font2, width=20, height=3)
+    labelPrixLootboxRare.place(x=5, y=150)
     
     def retour():
         fn.destroy()
