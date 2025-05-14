@@ -3,6 +3,8 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Main
 
+recherche = 0
+
 fn = Tk()
 fn.title("Main - ClickLab")
 fn.geometry("1280x720")
@@ -13,7 +15,7 @@ my_font = tkFont.Font(size = 20)
 
 def jouer():
     fn.destroy()
-    Main.lancer_main()
+    Main.lancer_main(recherche)
 
 Button(fn, text="Jouer", font=my_font, command=jouer).place(x=0, y=0)
 
