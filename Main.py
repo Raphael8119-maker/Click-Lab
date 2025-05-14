@@ -3,15 +3,16 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Rng
 
-def lancer_main(recherche = 0):
+def lancer_main(recherche_initial = 0):
     """
     
     Lance l'interface graphique principale du jeu.
     
     """
+    recherche = recherche_initial
 
     # Création de la fenêtre principale
-    fn = Toplevel()
+    fn = Tk()
     fn.title("Main - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
@@ -42,7 +43,7 @@ def lancer_main(recherche = 0):
         Si le clic est dans les limites de l'image, incrémente le compteur.
         
         """
-        global recherche
+        nonlocal recherche
         x, y = event.x, event.y
         fiole_coords = canvas.coords("fiole")
         if x >= fiole_coords[0] and x <= fiole_coords[0] + image.size[0]:
