@@ -2,8 +2,9 @@ from tkinter import *
 from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Rng
+import Menu
 
-def lancer_main(recherche_initial = 0):
+def lancer_main(recherche_initial):
     """
     
     Lance l'interface graphique principale du jeu.
@@ -63,19 +64,29 @@ def lancer_main(recherche_initial = 0):
         """
         fn.destroy()
         Rng.lancer_lootbox_interface(recherche, competencesLootBoxRare, lootboxes)
+        
+    def ouvrir_menu():
+        """
+        
+        Ferme la fenêtre actuelle et ouvre l'interface du menu via le module Menu.
+        
+        """
+        fn.destroy()
+        Menu.menu(recherche)    
 
     # Affichage du compteur de clics
     Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
 
     # Bouton pour ouvrir une lootbox
-    Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=100, y=400)
+    Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=550, y=400)
 
     # Bouton pour ouvrir l'arbre des compétences
     Button(fn, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
+    
+    #Bouton pour retourner au menu principale 
+    Button(fn, text="Menu Principal", font=my_font, command=ouvrir_menu).place(x=100, y=400)
 
     # Lier le clic de souris à la fonction de comptage
     canvas.bind("<Button-1>", compte_click)
     
     fn.mainloop()
-
-    
