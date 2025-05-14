@@ -40,6 +40,11 @@ def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, list
     labelPrixLootboxRare.place(x=5, y=150)
     
     def retour():
+        """
+        
+        Ferme la fenêtre actuelle et ouvre l'interface du jeu via le module Main.
+        
+        """
         fn.destroy()
         Main.lancer_main(recherche)
     
