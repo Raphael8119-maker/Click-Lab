@@ -4,22 +4,31 @@ import tkinter.font as tkFont
 import Rng
 import Menu
 
-def lancer_main(recherche_initial):
+def lancer_main(recherche_initial, fn):
     """
     
     Lance l'interface graphique principale du jeu.
     
     """
     recherche = recherche_initial
+    
+    if fn is None:
+        fn = Tk()
+        own_window = True
+    else:
+        own_window = False
+        # Nettoyer la fenêtre existante si besoin
+        for widget in fn.winfo_children():
+            widget.destroy()
 
-    # Création de la fenêtre principale
-    fn = Tk()
     fn.title("Main - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
+
+    # Création de la fenêtre de jeu
     
-    frameMain = Frame(fn, bg="lightblue", padx=571, pady=337)
+    frameMain = Frame(fn, bg="lightblue", padx=571, pady=337).place(x= 0, y= 0)
 
     # Police pour les boutons
     my_font = tkFont.Font(size=20)
@@ -64,8 +73,7 @@ def lancer_main(recherche_initial):
         Ferme la fenêtre actuelle et ouvre l'interface de lootbox via le module Rng.
         
         """
-        fn.destroy()
-        Rng.lancer_lootbox_interface(recherche, competencesLootBoxRare, lootboxes)
+        Rng.lancer_lootbox_interface(recherche, competencesLootBoxRare, lootboxes, fn)
         
     def ouvrir_menu():
         """
@@ -73,8 +81,7 @@ def lancer_main(recherche_initial):
         Ferme la fenêtre actuelle et ouvre l'interface du menu via le module Menu.
         
         """
-        fn.destroy()
-        Menu.menu(recherche)    
+        Menu.menu(recherche, fn)    
 
     # Affichage du compteur de clics
     Label(frameMain, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
@@ -91,4 +98,5 @@ def lancer_main(recherche_initial):
     # Lier le clic de souris à la fonction de comptage
     canvas.bind("<Button-1>", compte_click)
     
-    fn.mainloop()
+    if own_window :
+        fn.mainloop()
