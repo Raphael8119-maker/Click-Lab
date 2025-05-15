@@ -1,6 +1,5 @@
 from tkinter import *
 import random
-import time
 import tkinter.font as tkFont
 from PIL import Image, ImageTk 
 import Main
