@@ -13,7 +13,7 @@ def menu(recherche_initial = 0):
     recherche = recherche_initial
 
     fn = Tk()
-    fn.title("Main - ClickLab")
+    fn.title("Menu - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
