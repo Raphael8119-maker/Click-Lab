@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Main
 
-def menu(recherche_initial = 0,fn = fn):
+def menu(recherche_initial = 0,fn = None):
     """
     
     Lance l'interface graphique du menu.
@@ -19,9 +19,7 @@ def menu(recherche_initial = 0,fn = fn):
         for widget in fn.winfo_children():
             widget.destroy()
         own_window = False
-    
-    
-    
+
     fn.title("Menu - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
