@@ -18,6 +18,8 @@ def lancer_main(recherche_initial):
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
+    
+    frameMain = Tk.frame(fn, bg="lightblue", padx=571, pady=337)
 
     # Police pour les boutons
     my_font = tkFont.Font(size=20)
@@ -27,7 +29,7 @@ def lancer_main(recherche_initial):
     photo = ImageTk.PhotoImage(image)
 
     # Création du canvas et ajout de l'image
-    canvas = Canvas(fn, width=photo.width(), height=photo.height())
+    canvas = Canvas(frameMain, width=photo.width(), height=photo.height())
     canvas.place(x=550,y=0)
     
     canvas.image = photo
@@ -75,16 +77,16 @@ def lancer_main(recherche_initial):
         Menu.menu(recherche)    
 
     # Affichage du compteur de clics
-    Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
+    Label(frameMain, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
 
     # Bouton pour ouvrir une lootbox
-    Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=550, y=400)
+    Button(frameMain, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=550, y=400)
 
     # Bouton pour ouvrir l'arbre des compétences
-    Button(fn, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
+    Button(frameMain, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
     
     #Bouton pour retourner au menu principale 
-    Button(fn, text="Menu Principal", font=my_font, command=ouvrir_menu).place(x=100, y=400)
+    Button(frameMain, text="Menu Principal", font=my_font, command=ouvrir_menu).place(x=100, y=400)
 
     # Lier le clic de souris à la fonction de comptage
     canvas.bind("<Button-1>", compte_click)
