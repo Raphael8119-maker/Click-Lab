@@ -14,11 +14,11 @@ def menu(recherche_initial = 0,fn = None):
 
     if fn is None :
         fn = tk.Tk()
-        own_window = True
+        fn_bonne = True
     else :
         for widget in fn.winfo_children():
             widget.destroy()
-        own_window = False
+        fn_bonne = False
 
     fn.title("Menu - ClickLab")
     fn.geometry("1280x720")
@@ -38,7 +38,10 @@ def menu(recherche_initial = 0,fn = None):
         Main.lancer_main(recherche,fn)
 
     Button(fn, text="Jouer", font=my_font, command=jouer).place(x=0, y=0)
-    if own_window :
+    
+    Button(fn, text="Quitter", font=my_font, command=fn.destroy).place(x=0, y=50)
+    
+    if fn_bonne :
         fn.mainloop()
     
 if __name__ == "__main__":
