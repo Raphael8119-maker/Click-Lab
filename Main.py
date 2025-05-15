@@ -19,7 +19,7 @@ def lancer_main(recherche_initial):
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
     
-    frameMain = Tk.frame(fn, bg="lightblue", padx=571, pady=337)
+    frameMain = Frame(fn, bg="lightblue", padx=571, pady=337)
 
     # Police pour les boutons
     my_font = tkFont.Font(size=20)
