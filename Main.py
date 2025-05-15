@@ -14,23 +14,20 @@ def lancer_main(recherche_initial, fn):
     
     if fn is None:
         fn = Tk()
-        own_window = True
+        fn_bonne = True
     else:
-        own_window = False
+        fn_bonne = False
         # Nettoyer la fenêtre existante si besoin
         for widget in fn.winfo_children():
             widget.destroy()
 
+    # Changement de la fenêtre de jeu
     fn.title("Main - ClickLab")
     fn.geometry("1280x720")
     fn.resizable(width=False, height=False)
     fn.configure(bg="light blue")
-
-    # Création de la fenêtre de jeu
     
-    frameMain = Frame(fn, bg="lightblue", padx=571, pady=337).place(x= 0, y= 0)
-
-    # Police pour les boutons
+    # Taille des boutons
     my_font = tkFont.Font(size=20)
 
     # Chargement de l'image de la fiole
@@ -38,9 +35,8 @@ def lancer_main(recherche_initial, fn):
     photo = ImageTk.PhotoImage(image)
 
     # Création du canvas et ajout de l'image
-    canvas = Canvas(frameMain, width=photo.width(), height=photo.height())
+    canvas = Canvas(fn, width=photo.width(), height=photo.height())
     canvas.place(x=550,y=0)
-    
     canvas.image = photo
     canvas.create_image(0, 0, anchor=NW, image=photo, tags="fiole")
 
@@ -70,7 +66,7 @@ def lancer_main(recherche_initial, fn):
     def ouvrir_lootbox():
         """
         
-        Ferme la fenêtre actuelle et ouvre l'interface de lootbox via le module Rng.
+        Ouvre l'interface de lootbox via le module Rng.
         
         """
         Rng.lancer_lootbox_interface(recherche, competencesLootBoxRare, lootboxes, fn)
@@ -78,25 +74,25 @@ def lancer_main(recherche_initial, fn):
     def ouvrir_menu():
         """
         
-        Ferme la fenêtre actuelle et ouvre l'interface du menu via le module Menu.
+        Ouvre l'interface du menu via le module Menu.
         
         """
         Menu.menu(recherche, fn)    
 
     # Affichage du compteur de clics
-    Label(frameMain, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
+    Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
 
     # Bouton pour ouvrir une lootbox
-    Button(frameMain, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=550, y=400)
+    Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=550, y=400)
 
     # Bouton pour ouvrir l'arbre des compétences
-    Button(frameMain, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
+    Button(fn, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
     
     #Bouton pour retourner au menu principale 
-    Button(frameMain, text="Menu Principal", font=my_font, command=ouvrir_menu).place(x=100, y=400)
+    Button(fn, text="Menu Principal", font=my_font, command=ouvrir_menu).place(x=100, y=400)
 
     # Lier le clic de souris à la fonction de comptage
     canvas.bind("<Button-1>", compte_click)
     
-    if own_window :
+    if fn_bonne :
         fn.mainloop()
