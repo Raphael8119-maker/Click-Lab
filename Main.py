@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import tkinter.font as tkFont
 import Rng
 import Menu
+import ArbreCompetence
 
 def lancer_main(recherche_initial, fn):
     """
@@ -77,7 +78,15 @@ def lancer_main(recherche_initial, fn):
         Ouvre l'interface du menu via le module Menu.
         
         """
-        Menu.menu(recherche, fn)    
+        Menu.menu(recherche, fn) 
+        
+    def ouvrir_competence():
+        """
+        
+        Ouvre l'interface du menu via le module Menu.
+        
+        """
+        ArbreCompetence.lancer_arbretechno_interface(recherche, competencesLootBoxRare, lootboxes, fn)   
 
     # Affichage du compteur de clics
     Label(fn, text="Nombre de clicks :", textvariable=texte, fg='black', bg='light blue', font= my_font).place(x=100, y=0)
@@ -86,7 +95,7 @@ def lancer_main(recherche_initial, fn):
     Button(fn, text="LootBox", font=my_font, command=ouvrir_lootbox).place(x=550, y=400)
 
     # Bouton pour ouvrir l'arbre des compétences
-    Button(fn, text="Arbre des Compétences", font=my_font, command=fn.destroy).place(x=900, y=400)
+    Button(fn, text="Arbre des Compétences", font=my_font, command=ouvrir_competence).place(x=900, y=400)
     
     #Bouton pour retourner au menu principale 
     Button(fn, text="Menu Principal", font=my_font, command=ouvrir_menu).place(x=100, y=400)
