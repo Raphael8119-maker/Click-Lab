@@ -3,6 +3,7 @@ import random
 import tkinter.font as tkFont
 from PIL import Image, ImageTk 
 import Main
+import ArbreCompetence
 
 
 def lancer_lootbox_interface(recherche_initial, listeCompetenceLootBoxRare, listeLootBox, fn):
